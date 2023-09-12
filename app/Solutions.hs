@@ -1,6 +1,5 @@
 module Solutions where
 
--- NOTE: LESSON 1: Basics
 -- DONE:: Exercise: Calculate the volume of a glass half full
 -- hint - cylinder volume = cross section area * height
 -- hint - break it down with where or let
@@ -25,17 +24,35 @@ circleArea r = pi * r ^ 2
 
 cylinderVolume r h = circleArea r * h
 
--- NOTE: LESSON 2: Lists, etc
 -- DONE: exercise last person's name
 -- return "None" if empty
 -- hint: drop, length, where
 lastPersonsName :: [(String, Int)] -> String
-lastPersonsName = error "TODO:"
-
-lastPersonsName' hs =
+lastPersonsName hs =
   lastName $ drop (length hs - 1) hs
  where
   lastName (p : _) = name p
   lastName [] = "None"
 
   name (n, _) = n
+
+-- DONE: Exercise: commands!
+-- quit: does nothing, stops
+-- concat a b c: concatenate strings
+-- count a: counts the number of characters in the word
+-- count a b c: count the number of words
+-- otherwise, repeat
+
+-- hint: case statement, or where function w/ pattern match
+-- hint: print
+
+mainCommands :: IO ()
+mainCommands = do
+  putStrLn "Enter a command"
+  cmd <- getLine
+  case words cmd of
+    ["quit"] -> return ()
+    ("concat" : rest) -> putStrLn $ concat rest
+    ["count", a] -> print $ length a
+    ("count" : rest) -> print $ length rest
+    _ -> mainCommands

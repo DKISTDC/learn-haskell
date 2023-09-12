@@ -39,6 +39,7 @@ Data Types
 * Maybe
 * Pattern matching / destructuring
 * Sum / Product types
+* Records?
 
 Functional Programming
 * Recursion

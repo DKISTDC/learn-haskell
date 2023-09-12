@@ -20,8 +20,9 @@ executable learn-haskell
   other-modules:
       Exercises.Ion1
       Lesson1Basics
-      Lesson2ListsEtc
+      Lesson2StringsIO
       Lesson3DataTypes
+      Lesson3Tuples
       Solutions
       Paths_learn_haskell
   autogen-modules:
