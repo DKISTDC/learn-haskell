@@ -18,26 +18,14 @@ ha = ("Hydrogen Alpha", 6562)
 
 spectralLines :: [(String, Float)]
 spectralLines =
-  -- Show head, drop
-  [caII_8542, sara, ("Alice", 54), ("Carl", 33)]
+  [caII_8542, heI, feI, ha]
 
 -- Destructuring = Pattern Matching
-name :: (String, Int) -> String
+name :: (String, Float) -> String
 name (n, _) = n
 
-age :: (String, Int) -> Int
-age (_, a) = a
-
--- Pattern matching
-cutoffSafe :: String -> Char
-cutoffSafe "" = ' '
-cutoffSafe (c : _) = c
-
-headSafe :: a -> [a] -> a
-headSafe def [] = def
-headSafe _ (a : _) = a
-
-cutoffSafe2 as = headSafe ' ' as
+wavelength :: (String, Float) -> Float
+wavelength (_, wl) = wl
 
 -- TODO: exercise last person's name
 -- return "None" if empty

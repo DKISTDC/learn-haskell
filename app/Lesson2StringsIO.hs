@@ -43,6 +43,17 @@ pad ns = ' ' : ns
 pad0 :: [Integer] -> [Integer]
 pad0 ns = 0 : ns
 
+-- Pattern matching
+cutoffSafe :: String -> Char
+cutoffSafe "" = ' '
+cutoffSafe (c : _) = c
+
+headSafe :: a -> [a] -> a
+headSafe def [] = def
+headSafe _ (a : _) = a
+
+cutoffSafe2 as = headSafe ' ' as
+
 -- IO and do notation
 main1 :: IO ()
 main1 =
