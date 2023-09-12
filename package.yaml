@@ -1,0 +1,26 @@
+name:               learn-haskell
+version:            0.1.0
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Sean Hess
+maintainer:         shess@nso.edu
+category:           Learn
+
+extra-source-files:
+  - README.md
+
+language: GHC2021
+
+ghc-options:
+  -Wall
+  -Wno-missing-signatures
+  -Wno-type-defaults
+  -Wno-name-shadowing
+
+dependencies:
+  base >= 4.16
+
+executables:
+  learn-haskell:
+    source-dirs: app
+    main: Main.hs

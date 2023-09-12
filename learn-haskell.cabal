@@ -1,0 +1,34 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.35.3.
+--
+-- see: https://github.com/sol/hpack
+
+name:           learn-haskell
+version:        0.1.0
+category:       Learn
+author:         Sean Hess
+maintainer:     shess@nso.edu
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+executable learn-haskell
+  main-is: Main.hs
+  other-modules:
+      Exercises.Ion1
+      Lesson1Basics
+      Lesson2ListsEtc
+      Lesson3DataTypes
+      Solutions
+      Paths_learn_haskell
+  autogen-modules:
+      Paths_learn_haskell
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wno-missing-signatures -Wno-type-defaults -Wno-name-shadowing
+  build-depends:
+      base >=4.16
+  default-language: GHC2021
