@@ -13,6 +13,7 @@ add x y = x + y
 triple x = x * 3
 
 -- operators are functions!
+-- x `add` 3
 add2 x y = (+) x y
 
 -- Nested parentheses
@@ -40,6 +41,37 @@ count3Times n = inc $ inc $ inc n
 -- hint - start with smallest piece of the problem = area of circle
 glassHalfFull _r _h = error "TODO: glassHalfFull"
 
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
 -- DONE: Solutions
 glassHalfFullLet r h =
   let area = pi * r ^ 2

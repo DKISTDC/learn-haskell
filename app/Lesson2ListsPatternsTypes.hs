@@ -79,25 +79,59 @@ headSafe _ (a : _) = a
 cutoffSafe2 as = headSafe ' ' as
 
 -- TODO: make a highly sophisticated generative AI
--- hi -> hi!
--- hello -> hello there!
--- flip message -> egassem
--- count one two three -> 3
--- secret dogs are nice -> ok, I won't tell anyone
--- '' -> Are you still there?
--- <msg> -> "I'm sorry, I don't understand: <msg>"
-
+--   hi -> hi!
+--   hello -> hello there!
+--   flip message -> egassem
+--   count one two three -> 3
+--   secret dogs are nice -> ok, I won't tell anyone
+--   '' -> Are you still there?
+--   <msg> -> "I'm sorry, I don't understand: <msg>"
 -- hint: words
 -- hint: where or case statement
 -- hint: show
 chatAI :: String -> String
-chatAI msg = chatAI' $ words msg
+chatAI msg = error "TODO"
 
-chatAI' :: [String] -> String
-chatAI' ["hi"] = "Hello there!"
-chatAI' ["hello"] = "Hello there!"
-chatAI' ["flip", s] = reverse s
-chatAI' ("count" : ss) = show $ length ss
-chatAI' ("secret" : _) = "ok, I won't tell anyone"
-chatAI' [] = "Are you still there?"
-chatAI' msg = "I do not understand: " ++ concat msg
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+-- DONE: Solutions
+chatAI' :: String -> String
+chatAI' msg = respond $ words msg
+ where
+  respond :: [String] -> String
+  respond ["hi"] = "Hello there!"
+  respond ["hello"] = "Hello there!"
+  respond ["flip", s] = reverse s
+  respond ("count" : ss) = show $ length ss
+  respond ("secret" : _) = "ok, I won't tell anyone"
+  respond [] = "Are you still there?"
+  respond msg = "I do not understand: " ++ concat msg

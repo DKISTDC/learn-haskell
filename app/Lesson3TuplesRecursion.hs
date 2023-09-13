@@ -30,11 +30,7 @@ wavelength (_, wl) = wl
 -- return 0 if empty
 -- hint: drop, length, where
 lastWavelength :: [(String, Float)] -> Float
-lastWavelength sls =
-  getWavelength $ drop (length sls - 1) sls
- where
-  getWavelength [p] = wavelength p
-  getWavelength _ = 0
+lastWavelength sls = error "TODO"
 
 -- * type aliases!
 type Wavelength = Float
@@ -69,11 +65,7 @@ linesBelow wl lines =
 -- TODO: identify the spectral line, matches if within 10 angstroms
 -- hint: Data.List.find
 identifyLine :: Wavelength -> [SpectralLine] -> Maybe SpectralLine
-identifyLine wl lines =
-  find (within10Angstroms wl) lines
- where
-  distance wl line = abs $ wavelength line - wl
-  within10Angstroms wl line = distance wl line <= 10
+identifyLine wl lines = error "TODO"
 
 -- Custom if/else logic with guards
 identifyLine' :: Wavelength -> Maybe SpectralLine
@@ -85,3 +77,46 @@ identifyLine' wl
   | otherwise = Nothing
  where
   distance wl line = abs $ wavelength line - wl
+
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+-- DONE: solutions
+
+lastWavelength2 :: [(String, Float)] -> Float
+lastWavelength2 sls =
+  getWavelength $ drop (length sls - 1) sls
+ where
+  getWavelength [p] = wavelength p
+  getWavelength _ = 0
+
+identifyLine2 :: Wavelength -> [SpectralLine] -> Maybe SpectralLine
+identifyLine2 wl lines =
+  find (within10Angstroms wl) lines
+ where
+  distance wl line = abs $ wavelength line - wl
+  within10Angstroms wl line = distance wl line <= 10
