@@ -12,6 +12,9 @@ add x y = x + y
 
 triple x = x * 3
 
+-- operators are functions!
+add2 x y = (+) x y
+
 -- Nested parentheses
 fancyCalculation =
   triple (add (add 5 6) 10)
