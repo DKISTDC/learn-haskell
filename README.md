@@ -4,7 +4,7 @@ Outline
 Download and Install
 * Clone repo: https://github.com/dkISTDC/learn-haskell
 * Install [GHCUP](https://www.haskell.org/ghcup/)
-* `ghcup tui`
+* `> ghcup tui`
   * cabal 3.6
   * HLS 2.2
   * GHC 9.2.8
