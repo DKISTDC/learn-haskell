@@ -18,7 +18,8 @@ ghc-options:
   -Wno-name-shadowing
 
 dependencies:
-  base >= 4.16
+  - base >= 4.16
+  - text
 
 executables:
   learn-haskell:

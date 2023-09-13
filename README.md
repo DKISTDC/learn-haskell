@@ -2,84 +2,23 @@ Outline
 =======
 
 Download and Install
-* Clone repo
-* GHCUP, cabal, haskell-language-server
+* Clone repo: https://github.com/dkISTDC/learn-haskell
+* Install [GHCUP](https://www.haskell.org/ghcup/)
+* `ghcup tui`
+  * cabal 3.6
+  * HLS 2.2
+  * GHC 9.2.8
 
 Why Haskell?
 * Code Fearlessly
 * Type System
 * Composition
 
-Lesson1: Basics
-* expressions: (2 + 3)
-* parentheses: (2 + 3) * 4
-* REPL / Reload
-* functions: add, triple
-* parentheses: fancyCalculation
-* let/in: fancyCalculations
-* where: count3Times
-* Exercise
+[Lesson 1: Basics](./app/Lesson1Basics.hs)
 
-Lesson2: Strings and IO
-* Lists of characters, type alias
-* Printing, Hello World!
-* (++), concat
-* head, tail, take, drop
-* IO / putStrLn, do
-IO - do notation
-* putStrLn / getLine
-* pure expressions with let
-* Tuples
+[Lesson 2: Lists, Types, and Patterns](./app/Lesson2ListsPatternsTypes.hs)
 
-Data Types
-* ADTs
-* Bool
-* Tuples
-* Domain-specific?
-* Maybe
-* Pattern matching / destructuring
-* Sum / Product types
-* Records?
+[Lesson 3: Tuples and Recursion](./app/Lesson3TuplesRecursion.hs)
 
-Functional Programming
-* Recursion
-* Partial Application, Currying
-
-Typeclasses
-* Interfaces
-* :info Eq
-* :info Num
-* Enum, Ord
-* Show
-
-Anonymous functions?
-Case expressions?
-Higher order functions
-Guards
-Function Composition with (.)
-
-Recursion! Way down here
-* factorial
-* fibbonaci
-
-Lists - again
-* Finally goes into map
-* filter
-* zip
-
-Folds 
-* foldl
-* scanl
-
-
-
-
-
-
-
-
-
-
-
-
+[Lesson 4: Data Types](./app/Lesson4DataTypes.hs)
 

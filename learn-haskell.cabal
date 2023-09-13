@@ -18,12 +18,13 @@ extra-source-files:
 executable learn-haskell
   main-is: Main.hs
   other-modules:
+      Exercises.FITS
       Exercises.Ion1
       Lesson1Basics
-      Lesson2StringsIO
-      Lesson3DataTypes
-      Lesson3Tuples
-      Solutions
+      Lesson2ListsPatternsTypes
+      Lesson3TuplesRecursion
+      Lesson4DataTypes
+      LessonNIO
       Paths_learn_haskell
   autogen-modules:
       Paths_learn_haskell
@@ -32,4 +33,5 @@ executable learn-haskell
   ghc-options: -Wall -Wno-missing-signatures -Wno-type-defaults -Wno-name-shadowing
   build-depends:
       base >=4.16
+    , text
   default-language: GHC2021

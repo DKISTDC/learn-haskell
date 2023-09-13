@@ -37,4 +37,21 @@ count3Times n = inc $ inc $ inc n
 -- hint - start with smallest piece of the problem = area of circle
 glassHalfFull _r _h = error "TODO: glassHalfFull"
 
--- Solutions.hs
+-- DONE: Solutions
+glassHalfFullLet r h =
+  let area = pi * r ^ 2
+      vol = area * h
+   in 0.5 * vol
+
+glassHalfFullWhere r h =
+  volume r h * 0.5
+ where
+  area r = pi * r ^ 2
+  volume r h = area r * h
+
+glassHalfFullLib r h =
+  cylinderVolume r h * 0.5
+
+circleArea r = pi * r ^ 2
+
+cylinderVolume r h = circleArea r * h
