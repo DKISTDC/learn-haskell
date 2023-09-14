@@ -23,6 +23,10 @@ Install Haskell Language Server, which provides LSP support (IDE support for Vis
   
     > ghcup install hls
 
+Manage installed versions of binaries in a Terminal User Interface
+
+    > ghcup tui
+
 Running Haskell Code
 --------------------
 
