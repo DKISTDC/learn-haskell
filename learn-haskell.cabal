@@ -30,7 +30,7 @@ executable learn-haskell
       Paths_learn_haskell
   hs-source-dirs:
       app
-  ghc-options: -Wall -Wno-missing-signatures -Wno-type-defaults -Wno-name-shadowing
+  ghc-options: -Wall -Wno-missing-signatures -Wno-type-defaults -Wno-name-shadowing -Wno-unused-matches
   build-depends:
       base >=4.16
     , text

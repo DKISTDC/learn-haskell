@@ -39,7 +39,7 @@ count3Times n = inc $ inc $ inc n
 -- hint - cylinder volume = cross section area * height
 -- hint - break it down with where or let
 -- hint - start with smallest piece of the problem = area of circle
-glassHalfFull _r _h = error "TODO: glassHalfFull"
+glassHalfFull r h = error "TODO: glassHalfFull"
 
 --
 --

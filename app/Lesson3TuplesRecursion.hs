@@ -49,15 +49,15 @@ ions (sl : sls) = ion sl : ions sls
 -- what's different between the two?
 -- just 'ion a'
 props :: (SpectralLine -> a) -> [SpectralLine] -> [a]
-props prop as = go as
- where
-  go [] = []
-  go (a : as) = prop a : go as
+props _ [] = []
+props f (a : as) = f a : props f as
 
+-- `prop` is the same as `map`
 -- :type map
 wavelengths2 as = map wavelength as
 ions2 as = map ion as
 
+-- `filter` items from a list
 linesBelow :: Wavelength -> [SpectralLine] -> [SpectralLine]
 linesBelow wl lines =
   filter (\sl -> wavelength sl < wl) lines
@@ -67,7 +67,7 @@ linesBelow wl lines =
 identifyLine :: Wavelength -> [SpectralLine] -> Maybe SpectralLine
 identifyLine wl lines = error "TODO"
 
--- Custom if/else logic with guards
+-- Alternatively, use custom if/else logic with guards
 identifyLine' :: Wavelength -> Maybe SpectralLine
 identifyLine' wl
   | 8535 <= wl && wl <= 8550 = Just caII_8542

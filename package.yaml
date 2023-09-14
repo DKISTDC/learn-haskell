@@ -16,6 +16,7 @@ ghc-options:
   -Wno-missing-signatures
   -Wno-type-defaults
   -Wno-name-shadowing
+  -Wno-unused-matches
 
 dependencies:
   - base >= 4.16
