@@ -59,6 +59,23 @@ Other useful cabal commands
     > cabal test
 
 
+Editor Integration
+------------------
+
+_(Follow installation instructions first. You should be able to run `ghcup`, `ghci`, and `cabal` in your terminal)_
+
+[Visual Studio Code](https://code.visualstudio.com/)
+
+  * Install [Haskell Extension](https://marketplace.visualstudio.com/items?itemName=haskell.haskell)
+    * Click Extensions
+    * search "Haskell"
+    * Install
+
+[Neovim](https://neovim.io/)
+
+  * Install [haskell-tools.nvim](https://github.com/mrcjkb/haskell-tools.nvim)
+
+
 Outline
 -------
 
