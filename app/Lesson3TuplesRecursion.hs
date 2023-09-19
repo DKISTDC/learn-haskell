@@ -2,9 +2,9 @@ module Lesson3TuplesRecursion where
 
 import Data.List
 
--- * Tuples
-caII_8542 :: (String, Float)
-caII_8542 = ("Calcium II 8542", 8542)
+-- * Tuples: unlike lists, we know that these data exist
+caII_854 :: (String, Float)
+caII_854 = ("Calcium II 8542", 8542)
 
 heI :: (String, Float)
 heI = ("Helium I", 10830)
@@ -17,11 +17,11 @@ ha = ("Hydrogen Alpha", 6562)
 
 spectralLines :: [(String, Float)]
 spectralLines =
-  [caII_8542, heI, feI, ha]
+  [caII_854, heI, feI, ha]
 
 -- * Destructuring = Pattern Matching
-ion :: (String, Float) -> String
-ion (n, _) = n
+name :: (String, Float) -> String
+name (n, _) = n
 
 wavelength :: (String, Float) -> Float
 wavelength (_, wl) = wl
@@ -34,20 +34,20 @@ lastWavelength sls = error "TODO"
 
 -- * type aliases!
 type Wavelength = Float
-type Ion = String
-type SpectralLine = (Ion, Wavelength)
+type LineName = String
+type SpectralLine = (LineName, Wavelength)
 
 -- * Simple Recursion!
 wavelengths :: [SpectralLine] -> [Wavelength]
 wavelengths [] = []
 wavelengths (sl : sls) = wavelength sl : wavelengths sls
 
-ions :: [SpectralLine] -> [Ion]
-ions [] = []
-ions (sl : sls) = ion sl : ions sls
+lineNames :: [SpectralLine] -> [LineName]
+lineNames [] = []
+lineNames (sl : sls) = name sl : lineNames sls
 
 -- what's different between the two?
--- just 'ion a'
+-- just 'wavelength x'
 props :: (SpectralLine -> a) -> [SpectralLine] -> [a]
 props _ [] = []
 props f (a : as) = f a : props f as
@@ -55,22 +55,33 @@ props f (a : as) = f a : props f as
 -- `prop` is the same as `map`
 -- :type map
 wavelengths2 as = map wavelength as
-ions2 as = map ion as
+lineNames2 as = map name as
 
 -- `filter` items from a list
 linesBelow :: Wavelength -> [SpectralLine] -> [SpectralLine]
 linesBelow wl lines =
   filter (\sl -> wavelength sl < wl) lines
 
+-- Maybe (Optional) is like list with 0 or 1 items, or a nullable value
+message :: Maybe String
+-- message = Nothing
+message = Just "hello"
+
+-- We can make a version of headSafe (Lesson 2) that makes the caller handle missing values
+headSafe :: [a] -> Maybe a
+headSafe [] = Nothing
+headSafe (a : _) = Just a
+
 -- TODO: identify the spectral line, matches if within 10 angstroms
--- hint: Data.List.find
+-- hint: Data.List module?
+-- hint: headSafe?
 identifyLine :: Wavelength -> [SpectralLine] -> Maybe SpectralLine
 identifyLine wl lines = error "TODO"
 
 -- Alternatively, use custom if/else logic with guards
 identifyLine' :: Wavelength -> Maybe SpectralLine
 identifyLine' wl
-  | 8535 <= wl && wl <= 8550 = Just caII_8542
+  | 8535 <= wl && wl <= 8550 = Just caII_854
   | 6297 <= wl && wl <= 6305 = Just feI
   | distance wl heI <= 10 = Just heI
   | distance wl ha <= 10 = Just ha
