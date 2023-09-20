@@ -21,6 +21,7 @@ ghc-options:
 dependencies:
   - base >= 4.16
   - text
+  - time
 
 executables:
   learn-haskell:

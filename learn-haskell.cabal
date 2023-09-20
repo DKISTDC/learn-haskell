@@ -34,4 +34,5 @@ executable learn-haskell
   build-depends:
       base >=4.16
     , text
+    , time
   default-language: GHC2021
