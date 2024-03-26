@@ -9,6 +9,9 @@ caII_854 = ("Calcium II 8542", 8542)
 heI :: (String, Float)
 heI = ("Helium I", 10830)
 
+hello :: (String, String)
+hello = ("Fake", "news")
+
 feI :: (String, Float)
 feI = ("Iron I", 6302)
 
@@ -40,7 +43,7 @@ type SpectralLine = (LineName, Wavelength)
 -- * Simple Recursion!
 wavelengths :: [SpectralLine] -> [Wavelength]
 wavelengths [] = []
-wavelengths (sl : sls) = wavelength sl : wavelengths sls
+wavelengths (a : as) = wavelength a : wavelengths as
 
 lineNames :: [SpectralLine] -> [LineName]
 lineNames [] = []
@@ -48,7 +51,8 @@ lineNames (sl : sls) = name sl : lineNames sls
 
 -- what's different between the two?
 -- just 'wavelength x'
-props :: (SpectralLine -> a) -> [SpectralLine] -> [a]
+-- Higher Order Functions
+props :: (a -> b) -> [a] -> [b]
 props _ [] = []
 props f (a : as) = f a : props f as
 
@@ -58,9 +62,13 @@ wavelengths2 as = map wavelength as
 lineNames2 as = map name as
 
 -- `filter` items from a list
+-- lambda functions
 linesBelow :: Wavelength -> [SpectralLine] -> [SpectralLine]
 linesBelow wl lines =
   filter (\sl -> wavelength sl < wl) lines
+  where
+    isBelow sl = wavelength sl < wl
+    
 
 -- Maybe (Optional) is like list with 0 or 1 items, or a nullable value
 message :: Maybe String
@@ -77,6 +85,17 @@ headSafe (a : _) = Just a
 -- hint: headSafe?
 identifyLine :: Wavelength -> [SpectralLine] -> Maybe SpectralLine
 identifyLine wl lines = error "TODO"
+
+
+
+
+
+
+
+
+
+
+
 
 -- Alternatively, use custom if/else logic with guards
 identifyLine' :: Wavelength -> Maybe SpectralLine

@@ -6,18 +6,29 @@ module Lesson4DataTypes where
 
 import Data.Time.Clock (UTCTime)
 
+
+
+
+
+
 -- Algebraic Data Types!
 
 -- Sum types: like enums
 -- compare Lesson3: type LineName = String
 data Element = He | H | Fe | Ca
 
+
+-- data MyNumbers = 1 | 2 | 3 | 4 | 5 | 6
+
+
+
 -- This is how bool is defined
-data Bool' = True' | False'
+-- data Bool = True | False
 
 -- Product types: combine different data
 -- compare to tuples in Lesson3: feI :: (String, Float)
 type Wavelength = Float
+
 data SpectralLine1 = SpectralLine1 Element Wavelength
 
 lines :: [SpectralLine1]
@@ -29,23 +40,44 @@ lines = [heI, feI, ha, caII_854]
   caII_854 = SpectralLine1 Ca 8542
 
 -- We can combine the two to handle complex states!
-data HasElement = None | Has Element
+data HasElement = Null | IHaveAnElement Element
 
 -- (Note: this is exactly how Maybe works, just with a type variable)
 -- data Maybe a = Nothing | Just a
 
+
+
+
+
+
+
+
 -- *** MAKE IMPOSSIBLE STATES IMPOSSIBLE (to represent)! ***
+
+
+
+
 
 -- Example 1. Wait, are we working in Angstroms or Nanometers?
 pleaseDontCallWithAngstroms :: Wavelength -> Float
 pleaseDontCallWithAngstroms = error "Could be off by a factor of 10"
 
+
+-- type Nanometers = Float
 newtype Nanometers = Nanometers Float
+newtype Angstroms = Angstroms Float
+
+convert :: Angstroms -> Nanometers
+convert (Angstroms a) = Nanometers (a / 10)
+
 photonEnergy :: Nanometers -> Float
 photonEnergy (Nanometers wl) = h * c / wl
  where
   h = 6.626 * 10 ^ (-34)
   c = 2.998 * 10 ^ 8
+
+calculateEnergy :: Angstroms -> Float
+calculateEnergy ang = photonEnergy (convert ang)
 
 -- Example 2. How to model the CaII Triplet?
 data CaIILine
@@ -76,6 +108,16 @@ data SpectralLine
   | HydrogenAlpha
   | IronI
   | CalciumII CaIILine
+
+lineName :: SpectralLine -> String
+lineName HeliumI = "Helium"
+lineName HydrogenAlpha = "Hydrogen Alpha"
+lineName IronI = "Iron I"
+lineName (CalciumII caBand) = "Calcium II: " ++ bandName caBand
+  where
+    bandName CaII_852 = "852"
+    bandName CaII_866 = "866"
+    bandName CaII_849 = "849"
 
 allLines :: [SpectralLine]
 allLines =

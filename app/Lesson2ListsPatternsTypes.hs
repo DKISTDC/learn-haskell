@@ -130,8 +130,16 @@ chatAI' msg = respond $ words msg
   respond :: [String] -> String
   respond ["hi"] = "Hello there!"
   respond ["hello"] = "Hello there!"
-  respond ["flip", s] = reverse s
+  respond ("flip" : s : []) = reverse s
   respond ("count" : ss) = show $ length ss
   respond ("secret" : _) = "ok, I won't tell anyone"
   respond [] = "Are you still there?"
   respond msg = "I do not understand: " ++ concat msg
+
+
+someWords :: [String]
+someWords = ["one", "two", "three"]
+
+command = ["count", "one", "two", "three"]
+command2 = "count" : ["one", "two", "three"]
+command3 = "count" : someWords
